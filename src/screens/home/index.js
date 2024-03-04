@@ -1,15 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' //instalé con npm install react-router-dom, luego importé el BrowserRouter y le di el formato de router en la función.
-import Library from './library'
-import Feed from './feed'
-import Trending from './trending'
-import Player from './player'
-import Favorites from './favorites'
-
+import Library from '../library/library'
+import Feed from '../feed/feed'
+import Trending from '../trending/trending'
+import Player from '../player/player'
+import Favorites from '../favorites/favorites'
+import './home.css'
+import Sidebar from '../../components/sidebar'
 
 export default function Home() {
   return (
     <Router>
+      <div className='main-body'>
+      <Sidebar />
         <Routes>
             <Route path='/' element={<Library />} />
             <Route path='/feed' element={<Feed />} />
@@ -17,6 +20,7 @@ export default function Home() {
             <Route path='/player' element={<Player />} />
             <Route path='/favorites' element={<Favorites />} />
         </Routes>
+      </div>
     </Router>
     
   )
